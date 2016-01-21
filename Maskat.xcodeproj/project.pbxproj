@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10C550601C50F59D006B81A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C5505F1C50F59D006B81A1 /* AppDelegate.swift */; };
+		10C550621C50F59D006B81A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C550611C50F59D006B81A1 /* ViewController.swift */; };
+		10C550651C50F59D006B81A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C550631C50F59D006B81A1 /* Main.storyboard */; };
+		10C550671C50F59D006B81A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10C550661C50F59D006B81A1 /* Assets.xcassets */; };
+		10C5506A1C50F59D006B81A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C550681C50F59D006B81A1 /* LaunchScreen.storyboard */; };
+		10C550751C50F59D006B81A1 /* MaskatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C550741C50F59D006B81A1 /* MaskatTests.swift */; };
+		10C550801C50F59D006B81A1 /* MaskatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C5507F1C50F59D006B81A1 /* MaskatUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		10C550711C50F59D006B81A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10C550541C50F59D006B81A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10C5505B1C50F59D006B81A1;
+			remoteInfo = Maskat;
+		};
+		10C5507C1C50F59D006B81A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10C550541C50F59D006B81A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10C5505B1C50F59D006B81A1;
+			remoteInfo = Maskat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10C5505C1C50F59D006B81A1 /* Maskat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maskat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10C5505F1C50F59D006B81A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		10C550611C50F59D006B81A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		10C550641C50F59D006B81A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		10C550661C50F59D006B81A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		10C550691C50F59D006B81A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		10C5506B1C50F59D006B81A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10C550701C50F59D006B81A1 /* MaskatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaskatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10C550741C50F59D006B81A1 /* MaskatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskatTests.swift; sourceTree = "<group>"; };
+		10C550761C50F59D006B81A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10C5507B1C50F59D006B81A1 /* MaskatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaskatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10C5507F1C50F59D006B81A1 /* MaskatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskatUITests.swift; sourceTree = "<group>"; };
+		10C550811C50F59D006B81A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		10C550591C50F59D006B81A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10C5506D1C50F59D006B81A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10C550781C50F59D006B81A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10C550531C50F59D006B81A1 = {
+			isa = PBXGroup;
+			children = (
+				10C5505E1C50F59D006B81A1 /* Maskat */,
+				10C550731C50F59D006B81A1 /* MaskatTests */,
+				10C5507E1C50F59D006B81A1 /* MaskatUITests */,
+				10C5505D1C50F59D006B81A1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		10C5505D1C50F59D006B81A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10C5505C1C50F59D006B81A1 /* Maskat.app */,
+				10C550701C50F59D006B81A1 /* MaskatTests.xctest */,
+				10C5507B1C50F59D006B81A1 /* MaskatUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		10C5505E1C50F59D006B81A1 /* Maskat */ = {
+			isa = PBXGroup;
+			children = (
+				10C5505F1C50F59D006B81A1 /* AppDelegate.swift */,
+				10C550611C50F59D006B81A1 /* ViewController.swift */,
+				10C550631C50F59D006B81A1 /* Main.storyboard */,
+				10C550661C50F59D006B81A1 /* Assets.xcassets */,
+				10C550681C50F59D006B81A1 /* LaunchScreen.storyboard */,
+				10C5506B1C50F59D006B81A1 /* Info.plist */,
+			);
+			path = Maskat;
+			sourceTree = "<group>";
+		};
+		10C550731C50F59D006B81A1 /* MaskatTests */ = {
+			isa = PBXGroup;
+			children = (
+				10C550741C50F59D006B81A1 /* MaskatTests.swift */,
+				10C550761C50F59D006B81A1 /* Info.plist */,
+			);
+			path = MaskatTests;
+			sourceTree = "<group>";
+		};
+		10C5507E1C50F59D006B81A1 /* MaskatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				10C5507F1C50F59D006B81A1 /* MaskatUITests.swift */,
+				10C550811C50F59D006B81A1 /* Info.plist */,
+			);
+			path = MaskatUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		10C5505B1C50F59D006B81A1 /* Maskat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10C550841C50F59D006B81A1 /* Build configuration list for PBXNativeTarget "Maskat" */;
+			buildPhases = (
+				10C550581C50F59D006B81A1 /* Sources */,
+				10C550591C50F59D006B81A1 /* Frameworks */,
+				10C5505A1C50F59D006B81A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Maskat;
+			productName = Maskat;
+			productReference = 10C5505C1C50F59D006B81A1 /* Maskat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		10C5506F1C50F59D006B81A1 /* MaskatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10C550871C50F59D006B81A1 /* Build configuration list for PBXNativeTarget "MaskatTests" */;
+			buildPhases = (
+				10C5506C1C50F59D006B81A1 /* Sources */,
+				10C5506D1C50F59D006B81A1 /* Frameworks */,
+				10C5506E1C50F59D006B81A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10C550721C50F59D006B81A1 /* PBXTargetDependency */,
+			);
+			name = MaskatTests;
+			productName = MaskatTests;
+			productReference = 10C550701C50F59D006B81A1 /* MaskatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		10C5507A1C50F59D006B81A1 /* MaskatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10C5508A1C50F59D006B81A1 /* Build configuration list for PBXNativeTarget "MaskatUITests" */;
+			buildPhases = (
+				10C550771C50F59D006B81A1 /* Sources */,
+				10C550781C50F59D006B81A1 /* Frameworks */,
+				10C550791C50F59D006B81A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10C5507D1C50F59D006B81A1 /* PBXTargetDependency */,
+			);
+			name = MaskatUITests;
+			productName = MaskatUITests;
+			productReference = 10C5507B1C50F59D006B81A1 /* MaskatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		10C550541C50F59D006B81A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Yoshua Dilham Kishi";
+				TargetAttributes = {
+					10C5505B1C50F59D006B81A1 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					10C5506F1C50F59D006B81A1 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 10C5505B1C50F59D006B81A1;
+					};
+					10C5507A1C50F59D006B81A1 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 10C5505B1C50F59D006B81A1;
+					};
+				};
+			};
+			buildConfigurationList = 10C550571C50F59D006B81A1 /* Build configuration list for PBXProject "Maskat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 10C550531C50F59D006B81A1;
+			productRefGroup = 10C5505D1C50F59D006B81A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				10C5505B1C50F59D006B81A1 /* Maskat */,
+				10C5506F1C50F59D006B81A1 /* MaskatTests */,
+				10C5507A1C50F59D006B81A1 /* MaskatUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		10C5505A1C50F59D006B81A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10C5506A1C50F59D006B81A1 /* LaunchScreen.storyboard in Resources */,
+				10C550671C50F59D006B81A1 /* Assets.xcassets in Resources */,
+				10C550651C50F59D006B81A1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10C5506E1C50F59D006B81A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10C550791C50F59D006B81A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		10C550581C50F59D006B81A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10C550621C50F59D006B81A1 /* ViewController.swift in Sources */,
+				10C550601C50F59D006B81A1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10C5506C1C50F59D006B81A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10C550751C50F59D006B81A1 /* MaskatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10C550771C50F59D006B81A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10C550801C50F59D006B81A1 /* MaskatUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		10C550721C50F59D006B81A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 10C5505B1C50F59D006B81A1 /* Maskat */;
+			targetProxy = 10C550711C50F59D006B81A1 /* PBXContainerItemProxy */;
+		};
+		10C5507D1C50F59D006B81A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 10C5505B1C50F59D006B81A1 /* Maskat */;
+			targetProxy = 10C5507C1C50F59D006B81A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		10C550631C50F59D006B81A1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10C550641C50F59D006B81A1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		10C550681C50F59D006B81A1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10C550691C50F59D006B81A1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		10C550821C50F59D006B81A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		10C550831C50F59D006B81A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		10C550851C50F59D006B81A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Maskat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sample.Maskat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		10C550861C50F59D006B81A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Maskat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sample.Maskat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		10C550881C50F59D006B81A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MaskatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sample.MaskatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maskat.app/Maskat";
+			};
+			name = Debug;
+		};
+		10C550891C50F59D006B81A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MaskatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sample.MaskatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maskat.app/Maskat";
+			};
+			name = Release;
+		};
+		10C5508B1C50F59D006B81A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MaskatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sample.MaskatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Maskat;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		10C5508C1C50F59D006B81A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MaskatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sample.MaskatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Maskat;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10C550571C50F59D006B81A1 /* Build configuration list for PBXProject "Maskat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10C550821C50F59D006B81A1 /* Debug */,
+				10C550831C50F59D006B81A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10C550841C50F59D006B81A1 /* Build configuration list for PBXNativeTarget "Maskat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10C550851C50F59D006B81A1 /* Debug */,
+				10C550861C50F59D006B81A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		10C550871C50F59D006B81A1 /* Build configuration list for PBXNativeTarget "MaskatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10C550881C50F59D006B81A1 /* Debug */,
+				10C550891C50F59D006B81A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		10C5508A1C50F59D006B81A1 /* Build configuration list for PBXNativeTarget "MaskatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10C5508B1C50F59D006B81A1 /* Debug */,
+				10C5508C1C50F59D006B81A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 10C550541C50F59D006B81A1 /* Project object */;
+}
