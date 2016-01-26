@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import Parse
 
 class PostViewController: UIViewController {
     
@@ -15,9 +16,9 @@ class PostViewController: UIViewController {
     @IBOutlet weak var navaigationBar: UINavigationBar!
     @IBOutlet weak var userProfileImage: UIImageView!
     @IBOutlet weak var postText: UITextView!
-    @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var createdAt: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var postImage: DesignableImageView!
     
     
     
@@ -106,14 +107,68 @@ class PostViewController: UIViewController {
     
     @IBAction func postButton_Clicked(sender: AnyObject) {
         
+        
+        //条件をしていくよ
+        if postImage == nil {
+            shakeImageView()
+        
+        
+        } else if postText.text.isEmpty{
+            
+            //ここに入れるのは
+        
+        
+        } else {
+        
+        
+        createNewPost()
+    
+        
         postText.resignFirstResponder()
         
         dismissViewControllerAnimated(true, completion: nil)
         
     }
-    
+    }
 
+    func createNewPost() {
+        
+        
+        let data = UIImagePNGRepresentation(PostImage)
+        let image = PFFile(data: data!)
+        
+        let newPost = PFObject(className: "Post")
+        newPost["user"] = PFUser.currentUser()!.username!
+        newPost["PostText"] = postText.text
+        newPost["PostImageFile"] = image
+        newPost["numberOfLikes"] = 0
+        
+        newPost.saveInBackgroundWithBlock { (success, error) -> Void in
+            
+            if error == nil{
+                
+                print("post saved")
+                
+            
+            }else{
+                
+                print("\(error?.localizedDescription)")
+            
+            }
+            
+        }
+        
+        
+    }
     
+    func shakeImageView() {
+        
+        postImage.animation = "shake"
+        postImage.curve = "speing"
+        postImage.duration = 1.0
+        postImage.animate()
+        
+    }
 
 }
 

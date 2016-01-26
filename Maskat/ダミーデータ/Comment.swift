@@ -7,36 +7,61 @@
 //
 
 import UIKit
+import Parse
 
-class Comment {
+//どこでも使えるクラス
+public class Comment: PFObject, PFSubclassing {
     
-    var id: String = ""
-    var createdAt: String = "today"
-    let postId: String
-    let user: User
-    var commentText: String
-    var numberOfLikes: Int
     
-    init(id: String, createdAt: String, postId: String, author: User, commentText: String, numberOfLikes: Int)
-    {
-        self.id = id
-        self.createdAt = createdAt
+    @NSManaged public var postId: String!
+    @NSManaged public var user: PFUser
+    @NSManaged public var commentText: String!
+    
+    //Public API
+    
+    var post: Post!
+    
+    override init() {
+        super.init()
+    }
+    
+    
+    //create new comment
+    
+    init(postId: String, user: PFUser, commentText: String) {
+        
         self.postId = postId
-        self.user = author
+        self.user = user
         self.commentText = commentText
-        self.numberOfLikes = numberOfLikes
+        
     }
     
-    // ダミーデータ
-    static func allComments() -> [Comment]
-    {
-        return [
-            Comment(id: "c1", createdAt: "May 21", postId: "f1", author: User.allUsers()[0], commentText: "この写真がすごいお気に入りです！綺麗ですね！！！", numberOfLikes: 21),
-            Comment(id: "c2", createdAt: "May 21", postId: "f3", author: User.allUsers()[0], commentText: "この写真がすごいお気に入りです！綺麗ですね！！！", numberOfLikes: 21),
-            Comment(id: "c3", createdAt: "May 21", postId: "f2", author: User.allUsers()[0], commentText: "この写真がすごいお気に入りです！綺麗ですね！！！", numberOfLikes: 21),
-            Comment(id: "c4", createdAt: "May 21", postId: "f5", author: User.allUsers()[0], commentText: "この写真がすごいお気に入りです！綺麗ですね！！！", numberOfLikes: 21),
-            Comment(id: "c5", createdAt: "May 21", postId: "f1", author: User.allUsers()[0], commentText: "この写真がすごいお気に入りです！綺麗ですね！！！", numberOfLikes: 21)
-        ]
+    
+    
+    
+    //PFsubのときに書く
+    override public class func initialize() {
+        struct Static {
+            static var onceToken: dispatch_once_t = 0
+            
+        }
+        
+        dispatch_once(&Static.onceToken) {
+            
+            self.registerSubclass()
+            
+        }
+        
     }
+    
+    public static func parseClassName() -> String {
+        
+        return "Comment"
+        
+    }
+    
+    
+    
+    
     
 }

@@ -7,33 +7,28 @@
 //
 
 import UIKit
+import Parse
 
-class User {
+public class User: PFUser {
+        
+        
+        @NSManaged public var profileImageFile: PFFile!
+  
     
-    var id: String
-    var fullName: String
-    var email: String
-    var profileImage: UIImage!
-    var profileHeaderImage: UIImage!
-    var interestId = [String]()
-    
-    init(id: String, fullName: String, email: String, profileImage: UIImage, headerImage: UIImage!) {
-        self.id = id
-        self.fullName = fullName
-        self.email = email
-        self.profileImage = profileImage
-        self.profileHeaderImage = headerImage
+        
+        
+        //PFsubのときに書く
+        override public class func initialize() {
+            struct Static {
+                static var onceToken: dispatch_once_t = 0
+                
+            }
+            
+            dispatch_once(&Static.onceToken) {
+                
+                self.registerSubclass()
+                
+            }
     }
-    
-    // MARK: - Private
-    
-    class func allUsers() -> [User]
-    {
-        return [
-            User(id: "f1", fullName: "Steave Jobs", email: "steave@info.com", profileImage: UIImage(named: "f1")!, headerImage: UIImage(named: "s1")!),
-            User(id: "f2", fullName: "Mark", email: "mark@info.com", profileImage: UIImage(named: "f2")!, headerImage: UIImage(named: "s2"))
-        ]
-    }
-
-    
+        
 }
