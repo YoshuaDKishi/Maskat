@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
+
 class ViewController: UIViewController {
     
     
@@ -41,6 +42,32 @@ class ViewController: UIViewController {
         createNewButton()
         
     }
+    
+    //Viewが表示される前にlet以下を行うよ
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        //ログインしてくれてるユーザーの定義
+        let user = PFUser.currentUser()
+        
+        //ログインしているユーザーがいないとき
+        if user == nil {
+        
+            presentLoginViewController()
+        
+        } else{
+            
+            //dataの読み込み
+        }
+        
+        
+        
+        
+        
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -124,6 +151,44 @@ extension ViewController: PostTableViewCellDelegate{
 
 
 
+//ログイン画面のバックをやるよpresentLoginViewController
+extension ViewController: PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
+    
+    func presentLoginViewController() {
+        
+        let loginContoroller = PFLogInViewController()
+        let signUpController = PFSignUpViewController()
+        
+        
+        loginContoroller.delegate = self
+        signUpController.delegate = self
+        
+        loginContoroller.fields = [PFLogInFields.UsernameAndPassword, PFLogInFields.LogInButton, PFLogInFields.SignUpButton]
+    
+        loginContoroller.signUpController = signUpController
+        
+        presentViewController(loginContoroller, animated: true, completion: nil)
+    }
+    
+    
+    
+    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
+        
+        //トップ画面へ
+        logInController.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+        
+        signUpController.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    
+    
+
+}
 
 
 
