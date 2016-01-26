@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var post = Post.allPosts
+    
+    
+    private var newButton: ActionButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +36,42 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor(hex: "#90d52e")
         
         title = "Maskat"
+        createNewButton()
         
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func createNewButton(){
+        
+        newButton = ActionButton(attachedToView: self.view, items: [])
+        newButton.action = { button in
+            print ("Post Button Pressed")
+            self.performSegueWithIdentifier("New Post Composer", sender: self)
+            
+        }
+        
+        newButton.backgroundColor = UIColor.greenColor()
+        
+        
+    }
+    
+    
+    //データをページ移動の際に一緒に移動させる
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+        if segue.identifier ==  "Show Comment Page"{
+            
+            let commentViewController = segue.destinationViewController as! CommentViewController
+            
+            commentViewController.post = sender as! Post
+        
+        }
+    
     }
 
 
@@ -68,10 +101,22 @@ extension ViewController: UITableViewDataSource {
         
         cell.post = post[indexPath.row]
         
+        cell.delegate = self
+        
         return cell
     }
     
     
+    
+}
+
+extension ViewController: PostTableViewCellDelegate{
+    
+    func commentButton_Clicked(post: Post) {
+       
+        self.performSegueWithIdentifier("Show Comment Page", sender: post)
+        
+    }
     
 }
 

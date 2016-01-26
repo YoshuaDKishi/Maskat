@@ -1,74 +1,67 @@
 //
-//  PostTableViewCell.swift
+//  PostInCommentTableViewCell.swift
 //  Maskat
 //
-//  Created by YoshiakiKishi on 2016/01/22.
+//  Created by YoshiakiKishi on 2016/01/25.
 //  Copyright © 2016年 Yoshua Dilham Kishi. All rights reserved.
 //
 
 import UIKit
 
-protocol PostTableViewCellDelegate {
-    
-    func commentButton_Clicked(post: Post)
-    
-}
-
-class PostTableViewCell: UITableViewCell {
+class PostInCommentTableViewCell: UITableViewCell {
     
     
-    
-    
-    @IBOutlet weak var userProfilePic: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var createdAt: UILabel!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var postText: UILabel!
-    
     @IBOutlet weak var likeButton: DesignableButton!
-    @IBOutlet weak var commentButton: DesignableButton!
-    
-    
-    private var currentUserDidLike: Bool =  false
-    
-    var delegate: PostTableViewCellDelegate!
-    
     
     
     var post: Post! {
-        
         didSet{
             updateUI()
         }
-        
     }
     
-    private func updateUI(){
+    private var currentUserDidLike: Bool =  false
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+    
+    func updateUI() {
         
-        //画像を丸める
-        
-        userProfilePic.layer.cornerRadius = userProfilePic.layer.bounds.width/2
-        postImage.layer.cornerRadius = 5.0
-        
-        userProfilePic.clipsToBounds = true
-        postImage.clipsToBounds = true
-        
-       
-        
-        //表示させていくよ
-        
-        userProfilePic.image! = post.user.profileImage
-        userNameLabel.text! = post.user.fullName
+        profileImage.image! = post.user.profileImage
+        usernameLabel.text! = post.user.fullName
         createdAt.text! = post.createdAt
         postImage.image! = post.postImage
         postText.text! = post.postText
         
-        
         likeButton.setTitle("😃 \(post.numberOfLikes) Likes", forState: .Normal)
         
-        configureButtonAppearence()
         changeLikeButtonColor()
+        configureButtonAppearence()
         
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        profileImage.layer.cornerRadius = profileImage.layer.bounds.width/2
+        profileImage.clipsToBounds = true
+            
+            
+            
+    
     }
     
     
@@ -79,14 +72,8 @@ class PostTableViewCell: UITableViewCell {
         likeButton.borderColor = UIColor.lightGrayColor()
         likeButton.tintColor = UIColor.lightGrayColor()
         
-        commentButton.cornerRadius = 3.0
-        commentButton.borderWidth = 2.0
-        commentButton.borderColor = UIColor.lightGrayColor()
-        commentButton.tintColor = UIColor.lightGrayColor()
-        
-        
-        
     }
+    
     
     private func changeLikeButtonColor(){
         
@@ -103,24 +90,9 @@ class PostTableViewCell: UITableViewCell {
         
         
     }
-    
-    
-    
-    
-    
-    
-    
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    
+    
     
     @IBAction func likeButton_Clicked(sender: DesignableButton) {
         
@@ -130,7 +102,7 @@ class PostTableViewCell: UITableViewCell {
         } else{
             post.numberOfLikes--
         }
-       
+        
         likeButton.setTitle("😃 \(post.numberOfLikes) Likes", forState: .Normal)
         
         currentUserDidLike = post.userDidLike
@@ -145,23 +117,7 @@ class PostTableViewCell: UITableViewCell {
         sender.velocity = 0.2
         sender.animate()
         
-        
     }
+  
     
-    
-    @IBAction func commentButton_Clicked(sender: DesignableButton) {
-        
-        //animation
-        
-        sender.animation = "pop"
-        sender.curve = "spring"
-        sender.duration = 1.5
-        sender.damping = 0.1
-        sender.velocity = 0.2
-        sender.animate()
-        
-        delegate?.commentButton_Clicked(post)
-        
-        
-    }
 }
