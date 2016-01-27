@@ -25,9 +25,12 @@ public class Post: PFObject, PFSubclassing {
     
     init(user: PFUser, postImage: UIImage, postText: String, numberOfLikes: Int) {
         
-       super.init()
-        
+        override init() {
+            super.init()
+        }
         //postImage = postImage
+        
+        postImageFile = createFileForm(postImage)
         
         self.user = user
         self.postText = postText

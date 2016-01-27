@@ -57,10 +57,24 @@ class PostTableViewCell: UITableViewCell {
         
         //表示させていくよ
         
-        userProfilePic.image! = post.user.profileImage
-        userNameLabel.text! = post.user.fullName
+        post.postImage.getDataInBackgroundWithBlock { (imageData, error) -> Void in
+            if error == nil{
+                
+                if let featuredImageData = imageData {
+                    
+                    self.postImage.image = UIImage(data: featuredImageData)
+                    
+                }
+                
+            } else {
+                print("\(error?.localizedDescription)")
+            }
+        }
+
+        
+        
+        usernameLabel.text = post.user.username!
         createdAt.text! = post.createdAt
-        postImage.image! = post.postImage
         postText.text! = post.postText
         
         

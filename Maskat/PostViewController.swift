@@ -41,6 +41,8 @@ class PostViewController: UIViewController {
         userProfileImage.layer.cornerRadius = userProfileImage.layer.bounds.width/2
         userProfileImage.clipsToBounds = true
         
+        usernameLabel.text! = User.currentUser()!.username!
+        
         
         
         //テキストの編集
@@ -133,22 +135,20 @@ class PostViewController: UIViewController {
 
     func createNewPost() {
         
-        
-        let data = UIImagePNGRepresentation(PostImage)
-        let image = PFFile(data: data!)
-        
-        let newPost = PFObject(className: "Post")
-        newPost["user"] = PFUser.currentUser()!.username!
-        newPost["PostText"] = postText.text
-        newPost["PostImageFile"] = image
-        newPost["numberOfLikes"] = 0
-        
+        let newPost = Post(user: User.currentUser()!, postImage: PostImage, postText: postText.text, numberOfLikes: 0)
+
         newPost.saveInBackgroundWithBlock { (success, error) -> Void in
             
             if error == nil{
                 
                 print("post saved")
                 
+                
+                // local notification 
+                
+                let center = NSNotificationCenter.defaultCenter()
+                let notification = NSNotification(name: "NewPostCreated", object: nil, userInfo: ["newPostObject" : newPost])
+                center.postNotification(notification)
             
             }else{
                 
@@ -160,6 +160,41 @@ class PostViewController: UIViewController {
         
         
     }
+    
+    
+    //画像を縮小していくよ
+    struct ImageSize {
+        
+        static let height: CGFloat = 480
+    }
+    
+    func createFileForm(image: UIImage) -> PFFile! {
+     
+        let ratio = image.size.width / image.size.height
+        let resizedImage = resizeImage(image, toWidth: ImageSize.height * ratio, andHeight: ImageSize.height)
+        let imageData = UIImageJPEGRepresentation(resizedImage, 0.8)!
+        
+        return PFFile(name: "image.jpg", data: imageData)
+        
+        
+    }
+    
+    func resizeImage(originalImage: UIImage, toWidth width: CGFloat, andHeight height: CGFloat) -> UIImage {
+        
+        let newSize = CGSizeMake(width, height)
+        let newRectangle = CGRectMake(0, 0, width, height)
+        UIGraphicsBeginImageContext(newSize)
+        
+        originalImage.drawInRect(newRectangle)
+        
+        let resizedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return resizedImage
+        
+        
+    }
+    
     
     func shakeImageView() {
         

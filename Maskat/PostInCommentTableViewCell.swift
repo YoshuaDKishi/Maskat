@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class PostInCommentTableViewCell: UITableViewCell {
     
     
@@ -40,10 +41,17 @@ class PostInCommentTableViewCell: UITableViewCell {
     
     func updateUI() {
         
-        profileImage.image! = post.user.profileImage
-        usernameLabel.text! = post.user.fullName
+        post.postImageFile.getDataInBackgroundWithBlock { (imageData, error) -> Void in
+            
+            if let featuredImage = imageData {
+                
+                self.postImage! = UIImage(data: featuredImage)
+            }
+            
+        }
+        usernameLabel.text! = post.user.username!
         createdAt.text! = post.createdAt
-        postImage.image! = post.postImage
+        
         postText.text! = post.postText
         
         likeButton.setTitle("😃 \(post.numberOfLikes) Likes", forState: .Normal)
@@ -59,7 +67,7 @@ class PostInCommentTableViewCell: UITableViewCell {
         profileImage.layer.cornerRadius = profileImage.layer.bounds.width/2
         profileImage.clipsToBounds = true
             
-            
+        postImage.layer.cornerRadius = 5.0
             
     
     }

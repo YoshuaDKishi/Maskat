@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class NewCommentViewController: UIViewController {
     
@@ -19,7 +20,7 @@ class NewCommentViewController: UIViewController {
     @IBOutlet weak var commentText: UITextView!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
-    var user = User.allUsers()[0]
+    var comment = [User]()
     var post: Post!
 
     override func viewDidLoad() {
@@ -36,7 +37,7 @@ class NewCommentViewController: UIViewController {
         commentText.becomeFirstResponder()
         
         profileImage.image = user.profileImage
-        usernameLabel.text! = user.fullName
+        usernameLabel.text! = User.currentUser()!.username!
         
         profileImage.layer.cornerRadius = profileImage.layer.bounds.width/2
         profileImage.clipsToBounds = true
@@ -62,9 +63,46 @@ class NewCommentViewController: UIViewController {
     
     @IBAction func commentButton_Clicked(sender: AnyObject) {
         
-        commentText.resignFirstResponder()
         
+        postNewComment()
+        
+        
+        
+        commentText.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    
+    
+    
+    func postNewComment(){
+        
+        
+        
+        let newComment = Comment(postId: post.objectId!, user: User.currentUser()!, commentText: commentText.text!)
+        newComment.saveInBackgroundWithBlock { (success, error) -> Void in
+         
+            if error == nil {
+                print("comment sent")
+
+                //local notification
+                
+                let center = NSNotificationCenter.defaultCenter()
+                let notification = NSNotification(name: "NewCommentSent", object: nil, userInfo: ["newCommentObject" : newComment])
+                center.postNotification(notification)
+
+                
+                
+            } else {
+                print("\(error?.localizedDescription)")
+                
+            }
+            
+            
+        }
+        
+        
+        
+    }
+    
 }

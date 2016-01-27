@@ -29,8 +29,8 @@ class CommentTableViewCell: UITableViewCell {
     private func updateUI(){
         
         userProfileImage.image! = comment.user.profileImage
-        usernameLabel.text! = comment.user.fullName
-        createdAt.text! = comment.createdAt
+        usernameLabel.text! = comment.user.username!
+            createdAt.text! = comment.createdAt
         commentLabel.text! = comment.commentText
         
     }

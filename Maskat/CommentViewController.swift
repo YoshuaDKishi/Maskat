@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class CommentViewController: UIViewController {
     
@@ -24,7 +25,7 @@ class CommentViewController: UIViewController {
     
     
     //APIからの情報取得（commentdotswift）
-    var comment = Comment.allComments()
+    var comments = [Comment]()
     
     
     //クリックされたコメントの表示
@@ -56,6 +57,44 @@ class CommentViewController: UIViewController {
         
         createNewButton()
     }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        
+        super.viewWillAppear(animated)
+        fetchComment()
+        
+        let center = NSNotificationCenter.defaultCenter()
+        let queue = NSOperationQueue.mainQueue()
+        
+        center.addObserverForName("NewCommentSent", object: nil, queue: queue) { (notification) -> Void in
+            
+            if let newComment = notification.userInfo?["newCommentObject"] as? Comment {
+                if !self.postWasDisplayed(newComment){
+                    
+                    self.comments.insert(newComment, atIndex: 0)
+                    self.tableView.reloadData()
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    func postWasDisplayed(newCooment: Comment) -> Bool {
+        
+        for comment in comments{
+            if comment.objectId! == newCooment.objectId! {
+                return true
+            }
+            
+        }
+        return false
+        }
+    
 
         //ボタンの実装
         private func createNewButton(){
@@ -70,6 +109,45 @@ class CommentViewController: UIViewController {
         
         newButton.backgroundColor = UIColor.greenColor()
         
+        
+    }
+    
+    func fetchComment() {
+        
+        let commentQuery = PFQuery(className: Comment.parseClassName())
+        
+        commentQuery.whereKey("postId", equalTo: post.objectId!)
+        commentQuery.orderByAscending("updateAt")
+        commentQuery.includeKey("user")
+        
+        
+        commentQuery.findObjectsInBackgroundWithBlock { (optionalObjects, error) -> Void in
+            if error == nil{
+                
+                if let commentObjects = optionalObjects as? [PFObject] {
+                    
+                    // とってきたデータがゼロだったら表示されないようにする
+                    if commentObjects.count > 0 {
+                     
+                        self.comments.removeAll(keepCapacity: false)
+                        
+                        for commentObject in commentObjects {
+                            
+                            let comment = commentObject as! Comment
+                            self.comments.append(comment)
+                        }
+                        
+                    }
+                    
+                    
+                }
+                self.tableView.reloadData()
+                
+            } else {
+               print("\(error?.localizedDescription)")
+            }
+            
+        }
         
     }
     
@@ -110,7 +188,7 @@ extension CommentViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (comment.count+1)
+        return (comments.count+1)
         
     }
     
@@ -127,7 +205,7 @@ extension CommentViewController: UITableViewDataSource {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath) as! CommentTableViewCell
             
-            cell.comment = comment[indexPath.row-1]
+            cell.comment = comments[indexPath.row-1]
             
             return cell
         }

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var post = Post.allPosts
+    var posts = [Post]()
     
     
     private var newButton: ActionButton!
@@ -59,6 +59,33 @@ class ViewController: UIViewController {
         } else{
             
             //dataの読み込み
+            fetchPosts()
+            
+            //local notification
+            
+            let center = NSNotificationCenter.defaultCenter()
+            let queue = NSOperationQueue.mainQueue()
+            
+            center.addObserverForName("NewPostCreated", object: nil, queue: queue, usingBlock: { (notification) -> Void in
+                
+                
+                if let newPost = notification.userInfo?["newPostObject"] as? Post {
+                    
+                    if !self.postWasDisplayed(newPost) {
+                        
+                        self.posts.insert(newPost, atIndex: 0)
+                        self.tableView.reloadData()
+                        
+                        
+                    }
+                    
+                }
+                
+                
+                
+            })
+            
+            
         }
         
         
@@ -68,10 +95,66 @@ class ViewController: UIViewController {
     }
     
     
+    func postWasDisplayed(newPost: Post) -> Bool{
+        
+        
+        for post in posts {
+            
+            if post.objectId! == newPost.objectId! {
+                
+                return true
+            }
+            
+        }
+        return false
+        
+        
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // fetch the posts with query
+    func fetchPosts() {
+        
+        
+        let currentUser = User.currentUser()!
+        let postQuery = PFQuery(className: Post.parseClassName())
+        postQuery.orderByDescending("upadatedAt")
+        postQuery.includeKey("'user")
+        postQuery.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            
+            //エラーの場合分け
+            if error == nil {
+                
+                if let postObjects = objects as? [PFObject] {
+                    self.posts.removeAll(keepCapacity: false)
+                    for postObject in postObjects {
+                        
+                        let postItem = postObject as! Post
+                        self.posts.append(postItem)
+                        
+                    }
+                    
+                    
+                }
+                
+                self.tableView.reloadData()
+                
+            } else {
+                
+                print("\(error?.localizedDescription)")
+                
+            }
+            
+            
+            
+        }
+        
     }
     
     private func createNewButton(){
@@ -120,7 +203,7 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return post.count
+        return posts.count
         
     }
     
@@ -128,7 +211,7 @@ extension ViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostTableViewCell
         
-        cell.post = post[indexPath.row]
+        cell.post = posts[indexPath.row]
         
         cell.delegate = self
         
